@@ -18,7 +18,7 @@
   		<table class='table'>
   		  <tr>
           <td><%= link_to user_path(@book.user_id) do %>
-            <%= image_tag @book.user.get_profile_image, size:"100x100" %><br>
+            <%= image_tag @book.user.get_profile_image(100,100)  %><br>
             <%= @book.user.name %>
             <% end %>
           </td>
@@ -39,7 +39,7 @@
 
 <div>
  <p>コメント件数:<%= @book.book_comments.count %></p>
- <% @book.book_comments.each do |book_comment| %>
+ <% @comments.each do |book_comment| %>
    <p><%= image_tag book_comment.user.get_profile_image(100,100) %></p>
    <%= book_comment.user.name %>
    <%= book_comment.created_at.strftime('%Y/%m/%d') %><%= book_comment.comment %>

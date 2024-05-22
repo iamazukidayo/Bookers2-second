@@ -5,6 +5,7 @@ class BooksController < ApplicationController
     @user = @book.user
     @book_new = Book.new
     @book_comment = BookComment.new
+    @comments = @book.book_comments
   end
 
 
@@ -45,6 +46,7 @@ class BooksController < ApplicationController
     end
   end
 
+
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
@@ -63,4 +65,5 @@ class BooksController < ApplicationController
       @user = @book.user
       redirect_to(books_path) unless @user == current_user
   end
+
 end
