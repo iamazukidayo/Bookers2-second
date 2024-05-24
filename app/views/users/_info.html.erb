@@ -9,6 +9,15 @@
 	  <th>introduction</th>
 	  <th><%= user.introduction %></th>
   </tr>
+  <tr>
+    <th>follows</th>
+    <th><%= link_to user.followings.count, user_followings_path(user)  %></th>
+  </tr>
+  <tr>
+    <th>followers</th>
+    <th><%= link_to  user.followers.count, user_followers_path(user) %></th>
+  </tr>
+
 </table>
 
 
@@ -26,11 +35,3 @@
          </div>
         <% end %>
 
-
-<!--<div class='row'>-->
-  <!--%= link_to edit_user_path(current_user.id) do %>-->
-  <!--<div class: "edit btn btn-outline-secondary btn-block" ><span class="glyphicon glyphicon-wrench" aria-hidden="true">-->
-    <!--<i class="fas fa-user-cog"></i>-->
-    <!--</span></div>-->
-  <!--% end %>-->
- <!--</div>-->
