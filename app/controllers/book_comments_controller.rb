@@ -7,13 +7,15 @@ def create
   comment.book_id = book.id
   comment.save
   # @comments = book.book_comments.reload
-  redirect_to book_path(book)
+  # redirect_to book_path(book)
+  redirect_to request.referer
 end
 
 
   def destroy
     BookComment.find(params[:id]).destroy
-    redirect_to book_path(params[:book_id])
+    # redirect_to book_path(params[:book_id])
+    redirect_to request.referer
   end
 
 

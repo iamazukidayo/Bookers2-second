@@ -5,7 +5,7 @@ class BooksController < ApplicationController
     @user = @book.user
     @book_new = Book.new
     @book_comment = BookComment.new
-    @comments = @book.book_comments
+    # @comments = @book.book_comments
   end
 
 

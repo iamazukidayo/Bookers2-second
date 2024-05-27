@@ -37,33 +37,24 @@
             <%= render "favorites/favorites", book: @book %>
           </td>
 
-           <p>
-             <td>コメント数:<%= @book.book_comments.count %></td>
-           </p>
-      </tr>
+           <td id="comment_counter">
+             <%= render "book_comments/counter", book: @book %>
+           </td>
 
-      <tr>
-          <td><% @comments.each do |book_comment| %>
-              <p><%= image_tag book_comment.user.get_profile_image(100, 100) %></p>
-                 <%= book_comment.user.name %>
-                 <%= book_comment.created_at.strftime('%Y/%m/%d') %><%= book_comment.comment %>
-               <% if book_comment.user == current_user %>
-               <%= link_to 'Destroy', @book, method: :delete,class: "btn btn-sm btn-danger"%></td>
+         </tr>
+
+           <div id="comment_index">
+             <%= render "book_comments/index", book: @book %>
+           </div>
+　　 </table>
+
+           <table>
+            <%= render "book_comments/form", book: @book, book_comment: @book_comment %>
+           </table>
+
+     </div>
 
 
-                <% end %>
-            <% end %>
-          </td>
-      </tr>
-    </div>
-
-      <tr>
-             <td><%= form_with model: [@book, @book_comment] do |f| %>
-                   <%= f.text_area :comment, class: "form-control", style:"w-120", rows: '5', placeholder: "コメントをここに" %>
-                   <%= f.submit "送信する" %>
-                 <% end %>
-             </td>
-       </tr>
       </table>
     </div>
   </div>
